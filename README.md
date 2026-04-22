@@ -30,6 +30,7 @@ I'm a **B.Tech in Computer Science** graduate with a strong foundation in backen
 
 ## 🔗 Connect With Me
 
+- **Live Portfolio:** [imroshan.vercel.app](https://imroshan.vercel.app/)
 - **GitHub:** [github.com/roshaniist](https://github.com/roshaniist)
 - **LinkedIn:** [linkedin.com/in/roshankr01u/](https://www.linkedin.com/in/roshankr01u/)
 - **Email:** kumarroshan62013@gmail.com
