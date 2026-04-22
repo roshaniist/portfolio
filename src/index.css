@@ -176,7 +176,7 @@ All colors MUST be HSL.
   }
 
   .section-shell {
-    @apply relative mx-auto w-full max-w-6xl px-6 py-20 md:px-8 md:py-28;
+    @apply relative w-full px-6 py-20 md:px-8 md:py-28;
   }
 
   .section-label {

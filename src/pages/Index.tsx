@@ -505,7 +505,7 @@ const Index = () => {
     <div className="relative overflow-x-clip overflow-y-visible">
       <div className="fixed left-0 top-0 z-[70] h-1 bg-brand transition-[width] duration-150" style={{ width: `${scrollProgress * 100}%` }} />
       <header className="fixed inset-x-0 top-0 z-50 border-b border-glass-border/15 bg-background/70 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 md:px-8">
+        <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 md:px-8">
           <a href="#" className="text-sm font-semibold uppercase tracking-[0.2em] text-cosmic story-link">
             RK
           </a>
@@ -909,7 +909,7 @@ const Index = () => {
       </Button>
 
       <footer className="border-t border-glass-border/15 py-10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="flex w-full flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-8">
           <div>
             <p className="text-lg font-semibold text-cosmic">
               <TypewriterText text="Roshan Kumar" reducedMotion={prefersReducedMotion} speed={34} />
