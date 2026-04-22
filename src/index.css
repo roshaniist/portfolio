@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 4% 12%;
+
+    --brand: 210 100% 45%;
+    --brand-foreground: 0 0% 100%;
+    --brand-alt: 210 100% 40%;
+    --brand-alt-foreground: 0 0% 100%;
+    --surface: 0 0% 100%;
+    --surface-foreground: 240 4% 12%;
+    --surface-alt: 240 9% 96%;
+    --surface-alt-foreground: 240 4% 12%;
+    --glass: 0 0% 100%;
+    --glass-border: 240 6% 72%;
+    --glow: 210 100% 45%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 4% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 4% 12%;
+
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 96%;
+    --secondary-foreground: 240 4% 12%;
+
+    --muted: 240 8% 94%;
+    --muted-foreground: 240 3% 40%;
+
+    --accent: 210 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 8% 86%;
+    --input: 240 8% 86%;
+    --ring: 210 100% 45%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+
+    --sidebar-foreground: 240 4% 12%;
+
+    --sidebar-primary: 210 100% 45%;
+
+    --sidebar-primary-foreground: 236 38% 8%;
+
+    --sidebar-accent: 240 10% 96%;
+
+    --sidebar-accent-foreground: 240 4% 12%;
+
+    --sidebar-border: 240 8% 86%;
+
+    --sidebar-ring: 210 100% 45%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --brand: 210 100% 45%;
+    --brand-foreground: 0 0% 100%;
+    --brand-alt: 210 100% 40%;
+    --brand-alt-foreground: 0 0% 100%;
+    --surface: 0 0% 12%;
+    --surface-foreground: 0 0% 100%;
+    --surface-alt: 0 0% 16%;
+    --surface-alt-foreground: 0 0% 96%;
+    --glass: 0 0% 0%;
+    --glass-border: 0 0% 100%;
+    --glow: 210 100% 45%;
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 94%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 73%;
+    --accent: 210 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 75% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 210 100% 45%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 210 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 24%;
+    --sidebar-ring: 210 100% 45%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html.theme-fade,
+  html.theme-fade *,
+  html.theme-fade *::before,
+  html.theme-fade *::after {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow, opacity, background-image;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-fade,
+    html.theme-fade *,
+    html.theme-fade *::before,
+    html.theme-fade *::after {
+      transition-duration: 0ms !important;
+    }
+
+    .animate-blink {
+      animation: none !important;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: none;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: 0;
+    font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  ::selection {
+    background: hsl(var(--brand) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-glass-border/15 bg-glass/55 backdrop-blur-xl;
+    box-shadow: 0 0 0 1px hsl(var(--glass-border) / 0.07), 0 24px 56px -28px hsl(var(--glow) / 0.55);
+  }
+
+  .section-shell {
+    @apply relative mx-auto w-full max-w-6xl px-6 py-20 md:px-8 md:py-28;
+  }
+
+  .section-label {
+    @apply mb-4 inline-flex items-center rounded-full border border-glass-border/20 bg-surface/65 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand;
+  }
+
+  .cosmic-grid::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 opacity-35;
+    background-image: linear-gradient(hsl(var(--glass-border) / 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--glass-border) / 0.09) 1px, transparent 1px);
+    background-size: 42px 42px;
+    animation: grid-pan 10s linear infinite;
+    mask-image: radial-gradient(circle at center, black 38%, transparent 86%);
+  }
+
+  .text-cosmic {
+    @apply bg-gradient-to-r from-brand via-accent to-brand-alt bg-clip-text text-transparent;
+  }
+
+  .mono-code {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
