@@ -186,7 +186,7 @@ const HOME_SEO = {
 
 const counters = [
   { value: 5, suffix: "+", label: "Projects Built" },
-  { value: 1000, suffix: "+", label: "DSA Problems" },
+  { value: 350, suffix: "+", label: "DSA Problems" },
   { value: 2, suffix: "", label: "Certificates" },
 ];
 
@@ -630,18 +630,18 @@ const Index = () => {
                 </span>
               </div>
               <pre className="overflow-x-auto text-brand">
-{terminalSnippetLines.map((line, index) => (
-                <div key={`${line}-${index}`} className="leading-7">
-                  <span className="mr-2 text-muted-foreground">$</span>
-                  <TypewriterText
-                    text={line}
-                    reducedMotion={prefersReducedMotion}
-                    speed={16}
-                    startDelay={index * 260}
-                    className="text-surface-foreground"
-                  />
-                </div>
-              ))}
+                {terminalSnippetLines.map((line, index) => (
+                  <div key={`${line}-${index}`} className="leading-7">
+                    <span className="mr-2 text-muted-foreground">$</span>
+                    <TypewriterText
+                      text={line}
+                      reducedMotion={prefersReducedMotion}
+                      speed={16}
+                      startDelay={index * 260}
+                      className="text-surface-foreground"
+                    />
+                  </div>
+                ))}
               </pre>
             </motion.div>
           </div>
@@ -791,12 +791,12 @@ const Index = () => {
                   </ul>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.stack.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="max-w-full whitespace-normal break-words bg-surface-alt text-surface-alt-foreground">
+                      <Badge key={tech} variant="secondary" className="max-w-full whitespace-normal break-words bg-surface-alt text-surface-alt-foreground">
                         {tech}
                       </Badge>
                     ))}
                   </div>
-                <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+                  <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
                     <a href={project.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-brand transition-colors hover:text-brand-alt">
                       <Globe className="h-4 w-4" /> Live Demo
                     </a>
@@ -911,9 +911,9 @@ const Index = () => {
       <footer className="border-t border-glass-border/15 py-10">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-8">
           <div>
-             <p className="text-lg font-semibold text-cosmic">
-               <TypewriterText text="Roshan Kumar" reducedMotion={prefersReducedMotion} speed={34} />
-             </p>
+            <p className="text-lg font-semibold text-cosmic">
+              <TypewriterText text="Roshan Kumar" reducedMotion={prefersReducedMotion} speed={34} />
+            </p>
             <p className="text-sm text-muted-foreground">Designing scalable and efficient software solutions with Java and Spring Boot.</p>
           </div>
           <nav className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
