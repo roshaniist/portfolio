@@ -608,7 +608,7 @@ const Index = () => {
                   <a href="#contact">Contact Me</a>
                 </Button>
                 <Button asChild variant="outline" className="border-glass-border/25 bg-surface/60 hover:bg-surface-alt">
-                  <a href="https://drive.google.com/file/d/TEMP_RESUME_LINK/view" target="_blank" rel="noreferrer">
+                  <a href="https://drive.google.com/file/d/1uYzMQRkMNn5bAlQhRwt45uuGu1VgqIXv/view?usp=sharing" target="_blank" rel="noreferrer">
                     Get Resume
                   </a>
                 </Button>
@@ -903,7 +903,7 @@ const Index = () => {
         asChild
         className="fixed bottom-5 right-4 z-[60] h-11 rounded-full bg-brand px-4 text-brand-foreground shadow-[0_10px_26px_hsl(var(--brand)/0.35)] hover:bg-brand/90 sm:right-6"
       >
-        <a href="https://drive.google.com/file/d/TEMP_RESUME_LINK/view" target="_blank" rel="noreferrer">
+        <a href="https://drive.google.com/file/d/1uYzMQRkMNn5bAlQhRwt45uuGu1VgqIXv/view?usp=sharing" target="_blank" rel="noreferrer">
           <FileDown className="mr-2 h-4 w-4" /> Download Resume
         </a>
       </Button>
