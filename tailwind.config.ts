@@ -27,6 +27,9 @@ export default {
           DEFAULT: "hsl(var(--brand-alt))",
           foreground: "hsl(var(--brand-alt-foreground))",
         },
+        "neon-cyan": "hsl(var(--neon-cyan))",
+        "neon-violet": "hsl(var(--neon-violet))",
+        "neon-blue": "hsl(var(--neon-blue))",
         surface: {
           DEFAULT: "hsl(var(--surface))",
           foreground: "hsl(var(--surface-foreground))",
@@ -86,24 +89,16 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
         drift: {
           "0%": { transform: "translate3d(0,0,0) scale(1)" },
@@ -112,11 +107,19 @@ export default {
         },
         "grid-pan": {
           "0%": { transform: "translateY(0px)" },
-          "100%": { transform: "translateY(36px)" },
+          "100%": { transform: "translateY(48px)" },
         },
         blink: {
           "0%, 49%": { opacity: "1" },
           "50%, 100%": { opacity: "0" },
+        },
+        "pulse-neon": {
+          "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.05)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
         },
       },
       animation: {
@@ -124,11 +127,16 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 6s ease-in-out infinite",
         drift: "drift 9s ease-in-out infinite",
-        "grid-pan": "grid-pan 9s linear infinite",
+        "grid-pan": "grid-pan 12s linear infinite",
         blink: "blink 1s step-end infinite",
+        "pulse-neon": "pulse-neon 2s ease-in-out infinite",
+        shimmer: "shimmer 4s linear infinite",
       },
       backgroundImage: {
-        "hero-radial": "radial-gradient(circle at 20% 20%, hsl(var(--brand) / 0.16), transparent 35%), radial-gradient(circle at 80% 0%, hsl(var(--brand-alt) / 0.2), transparent 45%)",
+        "hero-radial":
+          "radial-gradient(circle at 20% 20%, hsl(var(--neon-cyan) / 0.12), transparent 35%), radial-gradient(circle at 80% 0%, hsl(var(--neon-violet) / 0.15), transparent 45%)",
+        "cosmic-mesh":
+          "radial-gradient(circle at 30% 70%, hsl(var(--neon-violet) / 0.08), transparent 50%), radial-gradient(circle at 70% 30%, hsl(var(--neon-cyan) / 0.08), transparent 50%)",
       },
     },
   },
