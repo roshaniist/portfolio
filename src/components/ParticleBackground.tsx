@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 
 interface Particle {
   x: number;
@@ -10,6 +11,8 @@ interface Particle {
 }
 
 const ParticleBackground = () => {
+  const { resolvedTheme } = useTheme();
+  const isDarkMode = resolvedTheme !== "light";
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>(0);
   const particlesRef = useRef<Particle[]>([]);
@@ -68,7 +71,8 @@ const ParticleBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(190, 100%, 55%, ${p.opacity})`;
+        const particleColor = isDarkMode ? "190, 100%, 55%" : "190, 100%, 40%";
+        ctx.fillStyle = `hsla(${particleColor}, ${p.opacity})`;
         ctx.fill();
       }
 
@@ -80,11 +84,12 @@ const ParticleBackground = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < CONNECTION_DIST) {
-            const alpha = (1 - dist / CONNECTION_DIST) * 0.15;
+            const alpha = (1 - dist / CONNECTION_DIST) * (isDarkMode ? 0.15 : 0.1);
+            const lineColor = isDarkMode ? "190, 100%, 55%" : "190, 100%, 40%";
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(190, 100%, 55%, ${alpha})`;
+            ctx.strokeStyle = `hsla(${lineColor}, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
