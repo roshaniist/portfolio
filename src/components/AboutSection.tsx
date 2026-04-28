@@ -46,7 +46,7 @@ const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
       <span className="section-label">
         <TypewriterText text="Discovery" reducedMotion={prefersReducedMotion} speed={30} />
       </span>
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5 }}>
           <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)", fontWeight: 700 }}>
             <TypewriterText text="Engineering products where performance meets imagination." reducedMotion={prefersReducedMotion} speed={18} />
@@ -75,9 +75,9 @@ const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="animated-border-box group"
+          className="animated-border-box group mx-auto w-full max-w-[320px] lg:mr-0"
         >
-          <div className="glass-card overflow-hidden relative h-full w-full">
+          <div className="glass-card overflow-hidden relative aspect-square w-full">
             {/* Neon ring glow effect */}
             <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{
