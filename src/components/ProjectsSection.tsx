@@ -99,6 +99,9 @@ const TiltCard = ({ project, index, prefersReducedMotion }: { project: Portfolio
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [6, -6]), { stiffness: 300, damping: 30 });
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-6, 6]), { stiffness: 300, damping: 30 });
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (prefersReducedMotion) return;
     const card = cardRef.current;
@@ -106,6 +109,8 @@ const TiltCard = ({ project, index, prefersReducedMotion }: { project: Portfolio
     const rect = card.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
   };
 
   const handleMouseLeave = () => {
@@ -134,8 +139,20 @@ const TiltCard = ({ project, index, prefersReducedMotion }: { project: Portfolio
           rotateY: supportsHover && !prefersReducedMotion ? rotateY : 0,
           transformStyle: "preserve-3d",
         }}
-        className="glass-card group overflow-hidden"
+        className="glass-card group overflow-hidden relative"
       >
+        {/* Cursor-following glow */}
+        {!prefersReducedMotion && (
+          <motion.div
+            className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{
+              background: useSpring(useTransform(
+                [mouseX, mouseY],
+                ([cx, cy]) => `radial-gradient(600px circle at ${cx}px ${cy}px, hsl(var(--neon-cyan) / 0.15), transparent 40%)`
+              )),
+            }}
+          />
+        )}
         {/* Image with gradient overlay */}
         <div className="relative overflow-hidden">
           <img

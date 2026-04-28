@@ -224,6 +224,28 @@
     border-color: hsl(var(--neon-cyan) / 0.5);
     box-shadow: 0 0 20px -5px hsl(var(--neon-cyan) / 0.2);
   }
+
+  /* ─── Animated Glowing Borders ─── */
+  .animated-border-box {
+    @apply relative overflow-hidden rounded-2xl p-px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-cyan) / 0.5), transparent);
+    background-size: 200% 100%;
+    animation: border-shimmer 4s linear infinite;
+  }
+
+  .animated-border-box::before {
+    content: "";
+    @apply absolute inset-[1px] -z-10 rounded-[calc(var(--radius)-1px)] bg-background;
+  }
+
+  /* ─── Character Reveal ─── */
+  .char-reveal {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px) skewY(5deg);
+    filter: blur(5px);
+    animation: char-entrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }
 
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
@@ -234,3 +256,26 @@
 @keyframes float-gentle { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
 @keyframes grid-pan { 0% { transform: translateY(0px); } 100% { transform: translateY(48px); } }
 @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+@keyframes border-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes char-entrance {
+  to {
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}

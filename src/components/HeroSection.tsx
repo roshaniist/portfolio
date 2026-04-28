@@ -78,6 +78,22 @@ interface HeroSectionProps {
   prefersReducedMotion: boolean;
 }
 
+const CharacterReveal = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+  return (
+    <span className="inline-flex">
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="char-reveal"
+          style={{ animationDelay: `${delay + i * 0.03}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const HeroSection = ({ prefersReducedMotion }: HeroSectionProps) => {
   const [activePhrase, setActivePhrase] = useState(0);
   const [typedText, setTypedText] = useState("");
@@ -110,7 +126,16 @@ const HeroSection = ({ prefersReducedMotion }: HeroSectionProps) => {
   const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0 } };
 
   return (
-    <section className="cosmic-grid relative min-h-screen pt-28">
+    <section className="cosmic-grid relative min-h-screen pt-28 overflow-hidden">
+      {/* Orbital Neon Spheres */}
+      {!prefersReducedMotion && (
+        <>
+          <div className="absolute top-[20%] left-[10%] h-32 w-32 rounded-full bg-neon-cyan/10 blur-[80px] animate-pulse-soft" />
+          <div className="absolute bottom-[30%] right-[15%] h-48 w-48 rounded-full bg-neon-violet/10 blur-[100px] animate-pulse-soft" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-neon-blue/5 blur-[120px] pointer-events-none" />
+        </>
+      )}
+
       {/* Hero gradient overlays */}
       <div className="pointer-events-none absolute inset-0 bg-hero-radial" />
       <div className="pointer-events-none absolute inset-0 bg-cosmic-mesh" />
@@ -122,7 +147,7 @@ const HeroSection = ({ prefersReducedMotion }: HeroSectionProps) => {
           </Badge>
 
           <h1 className="text-shimmer" style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 800, lineHeight: 1.1 }}>
-            <TypewriterText text="Roshan Kumar" reducedMotion={prefersReducedMotion} speed={46} />
+            {prefersReducedMotion ? "Roshan Kumar" : <CharacterReveal text="Roshan Kumar" />}
           </h1>
 
           <p className="mono-code mt-4 flex min-h-8 items-center gap-2 text-sm text-muted-foreground sm:text-base">

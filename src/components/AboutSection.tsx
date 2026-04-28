@@ -75,23 +75,25 @@ const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card overflow-hidden relative group"
+          className="animated-border-box group"
         >
-          {/* Neon ring glow effect */}
-          <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-            style={{
-              background: "linear-gradient(135deg, hsl(var(--neon-cyan) / 0.2), hsl(var(--neon-violet) / 0.2))",
-              filter: "blur(20px)",
-            }}
-          />
-          <img
-            src={roshanProfileImage}
-            alt="Roshan Kumar professional portrait"
-            loading="lazy"
-            width={480}
-            height={480}
-            className="relative h-full w-full object-cover"
-          />
+          <div className="glass-card overflow-hidden relative h-full w-full">
+            {/* Neon ring glow effect */}
+            <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background: "linear-gradient(135deg, hsl(var(--neon-cyan) / 0.2), hsl(var(--neon-violet) / 0.2))",
+                filter: "blur(20px)",
+              }}
+            />
+            <img
+              src={roshanProfileImage}
+              alt="Roshan Kumar professional portrait"
+              loading="lazy"
+              width={480}
+              height={480}
+              className="relative h-full w-full object-cover"
+            />
+          </div>
         </motion.div>
       </div>
     </section>
