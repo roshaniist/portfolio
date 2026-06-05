@@ -1,4 +1,4 @@
-import { FileDown } from "lucide-react";
+import { FileDown, Github, Linkedin, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "./HeroSection";
 
@@ -45,6 +45,17 @@ const FooterSection = ({ prefersReducedMotion }: FooterSectionProps) => {
               </a>
             ))}
           </nav>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/roshaniist" target="_blank" rel="noreferrer" className="hover:text-neon-cyan transition-colors">
+              <Github className="h-4 w-4 text-neon-cyan" />
+            </a>
+            <a href="https://www.linkedin.com/in/roshankr01u/" target="_blank" rel="noreferrer" className="hover:text-neon-cyan transition-colors">
+              <Linkedin className="h-4 w-4 text-neon-cyan" />
+            </a>
+            <a href="https://www.geeksforgeeks.org/profile/kumarroshan62013?tab=activity" target="_blank" rel="noreferrer" className="hover:text-neon-cyan transition-colors">
+              <Terminal className="h-4 w-4 text-neon-cyan" />
+            </a>
+          </div>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} • Made with ❤️ by Roshan Kumar</p>
         </div>
       </footer>
