@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Globe, Linkedin, Mail, Rocket, Send } from "lucide-react";
+import { Code2, Github, Globe, Linkedin, Mail, Rocket, Send, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -90,13 +90,22 @@ const ContactSection = ({ prefersReducedMotion }: ContactSectionProps) => {
               <Mail className="h-4 w-4 text-neon-cyan" /> 📧 Email: kumarroshan62013@gmail.com
             </a>
             <a href="https://www.linkedin.com/in/roshankr01u/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
-              <Linkedin className="h-4 w-4 text-neon-cyan" /> 💼 LinkedIn: https://www.linkedin.com/in/roshankr01u/
+              <Linkedin className="h-4 w-4 text-neon-cyan" /> 💼 LinkedIn: roshankr01u
             </a>
             <a href="https://github.com/roshaniist" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
-              <Github className="h-4 w-4 text-neon-cyan" /> GitHub Repositories
+              <Github className="h-4 w-4 text-neon-cyan" /> 🛠️ GitHub: roshaniist
+            </a>
+            <a href="https://leetcode.com/u/roshan_62013/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
+              <Code2 className="h-4 w-4 text-neon-cyan" /> 💻 LeetCode: roshan_62013
+            </a>
+            <a href="https://www.geeksforgeeks.org/profile/kumarroshan62013?tab=activity" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
+              <Terminal className="h-4 w-4 text-neon-cyan" /> 🚀 GeeksforGeeks: kumarroshan62013
+            </a>
+            <a href="https://imroshan.vercel.app/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
+              <Globe className="h-4 w-4 text-neon-cyan" /> 🌐 Portfolio: imroshan.vercel.app
             </a>
             <a href="tel:+919572752717" className="flex items-center gap-3 text-muted-foreground hover:text-neon-cyan transition-colors">
-              <Globe className="h-4 w-4 text-neon-cyan" /> +91 9572752717
+              <Globe className="h-4 w-4 text-neon-cyan" /> 📞 Phone: +91 9572752717
             </a>
           </div>
 

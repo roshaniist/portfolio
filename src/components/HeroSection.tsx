@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Code2, Github, Globe, Linkedin, Mail, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -167,6 +167,9 @@ const HeroSection = ({ prefersReducedMotion }: HeroSectionProps) => {
             {[
               { href: "https://github.com/roshaniist", icon: Github, rotate: -2 },
               { href: "https://www.linkedin.com/in/roshankr01u/", icon: Linkedin, rotate: 2 },
+              { href: "https://imroshan.vercel.app/", icon: Globe, rotate: 1.5 },
+              { href: "https://leetcode.com/u/roshan_62013/", icon: Code2, rotate: -1 },
+              { href: "https://www.geeksforgeeks.org/profile/kumarroshan62013?tab=activity", icon: Terminal, rotate: 3 },
               { href: "mailto:kumarroshan62013@gmail.com", icon: Mail, rotate: -1.5 },
             ].map((item) => (
               <motion.a
